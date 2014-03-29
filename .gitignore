@@ -1,3 +1,10 @@
+# Emacs local backup
+.backups/
+
+# pdfLatex and Emacs compilation artefacts
+src/auto/
+src/*.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
