@@ -1,0 +1,8 @@
+Check me:
+* mixnet
+* freenet
+* anonymity vs. security conflicts
+* trusted authority
+* From coursera cryptography I: Alice encrypts query, sends to Google, gets encrypted results. Google doesn't know the query text (very theoretical). 
+* Zero knowledge proof 
+* Birthday paradox
