@@ -1,10 +1,10 @@
-SRCS := $(wildcard *.tex)
+SRCS := $(wildcard *.tex) bibliography.bib
 MAIN_SRC = znasibov_research_proposal.tex
 TARGET = znasibov_research_proposal.pdf
 
 all: ${TARGET}
 
 ${TARGET}: ${SRCS}
-	pdflatex -interaction=nonstopmode ${MAIN_SRC}
+	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make ${TARGET}
 
 .PHONY: all 
