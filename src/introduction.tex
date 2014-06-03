@@ -8,16 +8,16 @@ storage and processing. When we speak of cloud computing, we refer to
 the services that store and process users' data remotely.
 Surprisingly a lot of various services fall under this description,
 for example: email providers such as
-\emph{Gmail} \footnote{\url{https://gmail.com}},
+\emph{Gmail}\footnote{\url{https://gmail.com}},
 image and file hosting services such as
-\emph{Flickr} \footnote{\url{http://flickr.com}} and
-\emph{Dropbox} \footnote{\url{http://dropbox.com}},
+\emph{Flickr}\footnote{\url{http://flickr.com}} and
+\emph{Dropbox}\footnote{\url{http://dropbox.com}},
 Voice over IP (VoIP) and Instant Messaging (IM) services, such as
-\emph{Skype} \footnote{\url{http://skype.com}} and
-\emph{WhatsApp} \footnote{\url{http://whatsapp.com}},
+\emph{Skype}\footnote{\url{http://skype.com}} and
+\emph{WhatsApp}\footnote{\url{http://whatsapp.com}},
 social networking services such as
-\emph{Facebook} \footnote{\url{http://facebook.com}} and
-\emph{LinkedIn} \footnote{\url{http://linkedin.com}}.
+\emph{Facebook}\footnote{\url{http://facebook.com}} and
+\emph{LinkedIn}\footnote{\url{http://linkedin.com}}.
 
 Storing and processing users' data remotely has been a concern for
 a lot of people around the globe. For example, the founder of GNU
@@ -40,14 +40,14 @@ of Edward Snowden, a former US National Security Agency (NSA) employee
 have revealed that a right for a privacy of the users' data can be
 severely ignored by a legitimate government.
 One of the documents obtained by the \emph{Guardian} magazine,
-reveal an existence of a governmental surveillance program \emph{Prism}
-\cite{snowden-prism}. Prism allows officials to collect
+reveal an existence of a governmental surveillance program
+\emph{Prism}\cite{snowden-prism}. Prism allows officials to collect
 material including search history, the content of emails, file
 transfers and live chats, the document says. One of the ugly examples
 of ignoring users' data privacy is a pre-encryption stage access
 to email on Outlook.com, including Hotmail and an access to Microsoft's
 cloud storage service \emph{SkyDrive}, all provided by Microsoft to NSA
-via Prism \cite{snowden-ms-nsa}.
+via Prism\cite{snowden-ms-nsa}.
 
 Why people still use cloud services? Usability and availability are
 among the main factors that attract the users. For example a Dropbox
@@ -59,13 +59,13 @@ view and download the photo from any other device via a web browser.
 
 Another example is Gmail, which provides an access to mail via
 standard
-POP \footnote{Post Office Protocol},
-IMAP \footnote{Internet Message Access Protocol}
-and SMTP \footnote{Simple Mail Transfer Protocol}
+POP\footnote{Post Office Protocol},
+IMAP\footnote{Internet Message Access Protocol}
+and SMTP\footnote{Simple Mail Transfer Protocol}
 protocols, making the service accesible
 via various email clients which are widely present on desktop
-and mobile platforms. Still, Gmail's immense popularity
-\cite{gmail-popularity}
+and mobile platforms. Still, Gmail's immense
+popularity\cite{gmail-popularity}
 do not come from these features, which are also available
 from the competitors, but from its feature-rich and convenient
 web client and integration with other Google services.
@@ -73,17 +73,32 @@ web client and integration with other Google services.
 Is there an alternative to proprietary cloud-based
 software-as-service?
 Of course there is! A personal server with e-mail,
-FTP \footnote{File Transfer Protocol} and
-SIP \footnote{Session Initiation Protocol}
-services could theoretically substitute all the services
+FTP\footnote{File Transfer Protocol} and
+SIP\footnote{Session Initiation Protocol}
+services could theoretically substitute all the cloud services
 mentioned above. In practice such a solution would be hard to maintain:
 a personal server need to be constantly online, a user has to keep
 the software up-to date, deal with security issues, hardware failures
-etc. Moreover it would 
-services from usability point of view. 
+etc.
+
+To overcome such maintainability difficulties an amount of
+processor work, network traffic routing and storage service load
+can be distributed between the users connected among themselves.
+The users of such a network are called peers and the network
+itself is called a peer-to-peer (p2p) network.
+One of the state of the art commercial p2p network examples is the
+original Skype VoIP network protocol. It was designed to route the
+voice traffic through a network of Skype users via
+``the most effective path possible''\cite{skype-p2p}, utilizing
+users' bandwidth and CPU resources. Although, Skype cannot
+be considered a ``pure'' p2p network, as various function like
+users authentication, contacts list, phone calls and sms etc.
+Another relatively new and unorthodox p2p network example is
+\emph{Bitcoin}\footnote{http://bitcoin.org}. Bitcoin is
+``the first decentralized peer-to-peer payment network that
+is powered by its users with no central authority or middlemen''.
+* And finally BitTorrent
 
 
-
-* What are the alternatives?
 * Why do we focus on p2p storage?
 * What do we try to achieve?
