@@ -35,12 +35,12 @@ and spam and malware detection''}.
 These kind of terms leave a user
 in awkward situation: either use the services and let all the information
 to be collected or don't use the services at all.
-Unfortunately the recent revelations\cite{snowden-timeline}
+The recent revelations\cite{snowden-timeline}
 of Edward Snowden, a former US National Security Agency (NSA) employee
-have revealed that a right for a privacy of the users' data can be
+showed that a right for a privacy of the users' data can be
 severely ignored by a legitimate government.
 One of the documents obtained by the \emph{Guardian} magazine,
-reveal an existence of a governmental surveillance program
+revealed an existence of a governmental surveillance program
 \emph{Prism}\cite{snowden-prism}. Prism allows officials to collect
 material including search history, the content of emails, file
 transfers and live chats, the document says. One of the ugly examples
@@ -53,7 +53,7 @@ Why people still use cloud services? Usability and availability are
 among the main factors that attract the users. For example a Dropbox
 user takes a photo via a smartphone camera, which is automatically
 uploaded to a cloud if an internet connection is available.
-The photo is automatically synchonized with user's devices which
+The photo is automatically synchonized with the user's devices which
 have Dropbox software installed on them. Moreover the user can
 view and download the photo from any other device via a web browser.
 
@@ -83,16 +83,15 @@ etc.
 
 To overcome such maintainability difficulties an amount of
 processor work, network traffic routing and storage service load
-can be distributed between the users connected among themselves.
+can be distributed among the interconnected users.
 The users of such a network are called peers and the network
 itself is called a peer-to-peer (p2p) network.
+
 One of the state of the art commercial p2p network examples is the
 original Skype VoIP network protocol. It was designed to route the
 voice traffic through a network of Skype users via
 ``the most effective path possible''\cite{skype-p2p}, utilizing
-users' bandwidth and CPU resources. Although, Skype cannot
-be considered a ``pure'' p2p network, as various function like
-users authentication, contacts list, phone calls and sms etc.
+users' bandwidth and CPU resources.
 Another relatively new and unorthodox p2p network example is
 \emph{Bitcoin}\footnote{http://bitcoin.org}. Bitcoin is
 ``the first decentralized peer-to-peer payment network that
@@ -103,8 +102,46 @@ trace and verify the ownership and transfer of each virtual
 coin from the moment it appeared in the network\footnote{
 Via so-called bitcoin mining process}.
 And finally BitTorrent - a popular file sharing protocol, which is
-usually 
+unfortunately widely associated with software piracy rather than
+with information liberty. BitTorrent allows a piece of data to be
+available, as long as any of the users, who has downloaded the original
+chunk of data (from the original source, or any other user) remains
+online. This leads to yet another brilliant property of BitTorrent:
+given many users online, who share the same data, it can be downloaded
+in pieces from different users (i.e. peers), increasing the download
+speed up to the network channel bandwidth limits.
 
+Peer-to-peer technologies play a major role in Internet users' lifes.
+Yet, not all users, not even p2p software users are aware of them.
+The reason of appealing for the end users and p2p technologies
+is in a favourable development of modern computers and network channels.
+With the growth of storage capabilities, processing power and network
+bandwidth a typical user has gigaflops of processing power, gigabytes
+of storage and megabits of network bandwidth to spare.
+
+In this study we are aiming to research, prototype and build a p2p storage
+network, with the focus on the following properties:
+
+\begin{itemize}
+\item \bfseries{Security} - all the user's data stored in the network is
+  accessible by the user or a party with whom a user is sharing an abstract
+  ``secret'' only.
+\item \bfseries{Scalability} - a network can be established in various
+  scales: from two-devices personal network up to an Internet-wide storage
+  system.
+\item \bfseries{Usability} - the software should be easy and intuitive to
+  use. Ideally the network client should be ready to use after a  simple
+  ``setup'' with a minimum set of questions to the user.
+\end{itemize}
+
+Although such properties invoke a number of challenges to be solved:
+
+\begin{itemize}
+\item \bfseries{Fairness} - user \bfseries{A} provides 1 gigabyte of storage
+space for the network. User \bfseries{B} provides 99 gigabytes of space
+for the network. On average they contribute fifty gigabytes of space each, but
+the difference 
+\end{itemize}
 
 * Why do we focus on p2p storage?
 * What do we try to achieve?
