@@ -99,8 +99,8 @@ is powered by its users with no central authority or middlemen''.
 In a nutshell, the Bitcoin network is a storage and processing
 mechanism for a chain of bitcoins transactions. Any user can
 trace and verify the ownership and transfer of each virtual
-coin from the moment it appeared in the network\footnote{
-Via so-called bitcoin mining process}.
+coin from the moment it appeared in the network\footnote{Via
+so-called bitcoin mining process}.
 And finally BitTorrent - a popular file sharing protocol, which is
 unfortunately widely associated with software piracy rather than
 with information liberty. BitTorrent allows a piece of data to be
@@ -120,28 +120,34 @@ bandwidth a typical user has gigaflops of processing power, gigabytes
 of storage and megabits of network bandwidth to spare.
 
 In this study we are aiming to research, prototype and build a p2p storage
-network, with the focus on the following properties:
+network, with the focus on the following properties and challenges to
+solve:
 
 \begin{itemize}
-\item \bfseries{Security} - all the user's data stored in the network is
+\item \textbf{Security} - all the user's data stored in the network is
   accessible by the user or a party with whom a user is sharing an abstract
   ``secret'' only.
-\item \bfseries{Scalability} - a network can be established in various
+\item \textbf{Scalability} - a network can be established in various
   scales: from two-devices personal network up to an Internet-wide storage
   system.
-\item \bfseries{Usability} - the software should be easy and intuitive to
+\item \textbf{Self-organization} - a network is self-organized in such
+  fashion that the users data is at least readable in case of it's spontaneous
+  degradation, like availability of peers, the contributed storage size
+  decrease, network lags etc.
+\item \textbf{Usability} - the software should be easy and intuitive to
   use. Ideally the network client should be ready to use after a  simple
   ``setup'' with a minimum set of questions to the user.
+\item \textbf{Fairness} - the amount of the network resources available
+  to each user correlates with his or her contribution.
+
 \end{itemize}
 
-Although such properties invoke a number of challenges to be solved:
 
-\begin{itemize}
-\item \bfseries{Fairness} - user \bfseries{A} provides 1 gigabyte of storage
-space for the network. User \bfseries{B} provides 99 gigabytes of space
-for the network. On average they contribute fifty gigabytes of space each, but
-the difference 
-\end{itemize}
 
 * Why do we focus on p2p storage?
 * What do we try to achieve?
+
+% user \textbf{A} provides 1 gigabyte of storage
+%   space for the network. User \textbf{B} provides 99 gigabytes of space
+%   for the network. On average they contribute fifty gigabytes of space each,
+%   but the difference is obvious. The fair access implies
