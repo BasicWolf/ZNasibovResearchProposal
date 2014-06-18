@@ -7,16 +7,15 @@ user's data there is a chance that a 3d party, or the service itself
 may intercept it for malicious actions.
 
 One possible solution would encrypting the data prior to sending it
-to a cloud service. 
+to a cloud service.
 
-In this study we are aiming to research, prototype and build a volunteer
-p2p storage network, with the focus on the following basic properties
-and challenges to solve:
+In this study we are aiming to research, prototype and build a p2p storage
+network, focusing on the following properties:
 
 \begin{itemize}
-\item \textbf{Data security} - all the user's data stored in the network is
-  accessible by the user or a party with whom a user is sharing an abstract
-  ``secret'' only.
+\item \textbf{Security} - all the user's data which is stored and transferred
+  within the network is accessible only by its owner or a party with whom the
+  owner is sharing an abstract secret only.
 \item \textbf{Scalability} - a network can be established in various
   scales: from two-devices personal network up to an Internet-wide storage
   system.
@@ -29,21 +28,28 @@ and challenges to solve:
   whole network down.
 \item \textbf{Usability} - the software should be easy and intuitive to
   use. Ideally the network client should be ready to use after a  simple
-  ``setup'' with a minimum set of questions to the user.
-\item \textbf{Fairness} - the amount of the network resources available
-  to each user correlates with his or her contribution.
+  setup with a minimum set of questions to the user.
 \end{itemize}
 
+Some of the properties described above have a well-known working solutions
+available in various p2p protocols. But the described storage network brings
+new challenges to solve:
 
+\begin{itemize}
+\item \textbf{Fairness} - the amount of the network resources available
+  to each user should correlate with his or her contribution.
+\end{itemize}
+
+TODO:
 * Why do we focus on p2p storage?
 * What do we try to achieve?
 
 * Fairness:
   * resource management
   * proof of storage and proof of transfer
-  * how long the data may remain? 
+  * how long the data may remain?
 * Self-organization:
-  * how the nodes should be grouped? 
+  * how the nodes should be grouped?
   * how the data should replicated?
   * node types and behaviour: mobile, stationary PC,
 * Decentralization:
@@ -51,7 +57,7 @@ and challenges to solve:
 * Usability:
   * Access through web applications, i.e. browser?
   * Access on mobile platforms?
-  * 
+  *
 
 % user \textbf{A} provides 1 gigabyte of storage
 %   space for the network. User \textbf{B} provides 99 gigabytes of space
