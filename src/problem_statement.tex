@@ -3,14 +3,14 @@
 As discussed in introduction, storing the data in cloud services
 can be very convenient for the end user, but it cannot be considered
 secure. If at any point the service has an access to non-encrypted
-user's data there is a chance that a 3d party, or the service itself
+user's data there is a chance that a third-party, or the service itself
 may intercept it for malicious actions.
 
-One possible solution would encrypting the data prior to sending it
-to a cloud service.
-
+One possible solution would be encrypting the data prior to sending it
+to a cloud service. Still, the points is that the cloud owns the data.
 In this study we are aiming to research, prototype and build a p2p storage
-network, focusing on the following properties:
+network, which is capable of substituting a cloud data storage services.
+focusing on the following properties:
 
 \begin{itemize}
 \item \textbf{Security} - all the user's data which is stored and transferred
@@ -29,6 +29,11 @@ network, focusing on the following properties:
 \item \textbf{Usability} - the software should be easy and intuitive to
   use. Ideally the network client should be ready to use after a  simple
   setup with a minimum set of questions to the user.
+\item \textbf{Commercialization} - The usage of the network is not limited
+  by volunteer storage space and bandwidth sharing. A commercial company
+  may utilize the user's resources in a private network for backup or any
+  other data storing tasks and pay to the users of this network for provided
+  storage.
 \end{itemize}
 
 Some of the properties described above have a well-known working solutions
@@ -36,29 +41,35 @@ available in various p2p protocols. But the described storage network brings
 new challenges to solve:
 
 \begin{itemize}
-\item \textbf{Fairness} - the amount of the network resources available
-  to each user should correlate with his or her contribution. For example,
-  user \textbf{A} provides 10 gigabyte of storage space for the network which
-  is available 24 hours a day. User \textbf{B} provides 30 gigabytes of space
-  for the network which is available 8 hours a day. Although the difference in
-  contributed space is obvious, the uptime can be considered more valuable.
-  Overall, the more resources a user provides to a network, the more resources
-  are available for him. 
+\item \textbf{Usage reporting} - the peers should be able to provide
+  a proof of storage and proof of data transfer. These values can be used
+  to balance the network resources between the peers, so that the amount
+  of the network resources available to each user should correlate with
+  his or her storage and bandwidth contribution. The questions to answer:
+  How data storage and transfer proof should be organized? How to protect
+  it from forgery?
+  % For example,
+  % user \textbf{A} provides 10 gigabyte of storage space for the network which
+  % is available 24 hours a day. User \textbf{B} provides 30 gigabytes of space
+  % for the network which is available 8 hours a day. Although the difference in
+  % contributed space is obvious, the uptime can be considered more valuable.
+  % Overall, the more resources a user provides to a network, the more resources
+  % are available for him.
 
-  
+\item \textbf{Distributed data storage} - how should the data be replicated
+  among the peers? How long should it be kept by the peers if the network
+  is running out of space? Which properties of individual peer (i.e. uptime,
+  free space, bandwidth, device type etc.) should be  taken into consideration
+  when tranferring the data to it?
+
+\item \textbf{Network topology} - what is the optimal way of organizing the
+  network? How should the peers interconnect?
+
+\item \textbf{Network security} - how should the network defend against known
+  attacks on p2p networks?
+
+\item \textbf{Software and platforms} - is it possible to distribute the software
+  on various platforms (i.e. PC, mobile, browsers etc.), providing the same
+  functionality?
 \end{itemize}
 
-* Fairness:
-  * resource management
-  * proof of storage and proof of transfer
-  * how long the data may remain?
-* Self-organization:
-  * how the nodes should be grouped?
-  * how the data should replicated?
-  * node types and behaviour: mobile, stationary PC,
-* Decentralization:
-  * Defense against known generic attacks on p2p networks.
-* Usability:
-  * Access through web applications, i.e. browser?
-  * Access on mobile platforms?
-  *
