@@ -1,19 +1,41 @@
 \section{Literature survey}
 
-This study aims to research and develop a self-organized distributed
-data storage network. Unlike the Freenet project \cite{freenet}, which
-has a strong focus on anonymous and censorship resistant information
-distribution, we are focusing on continuous availability of each user's
-data uploaded to the network. By-definition only the original user
+The p2p storage networks have been actively researched developed since
+the beginning of 2000s.
+
+The \emph{Freenet} project, developed in 2000 was
+a pioneer of distributed information sharing networks \cite{freenet}.
+Freenet was the first distributed network which allowed anonymized
+and censorship resistant publication and distribution of information
+\cite{dark-freenet}. The network is fully operational nowadays.
+Freenet is not designed to be a long-term storage network, as
+the ``unpopular'' documents, which are not retrieved by the
+users frequently are eventually overwritten by a new content.
+
+Unlike Freenet, the \emph{PAST} distributed storage utility was a
+research project focusing on scalability, high availability, persistence
+and security \cite{past}. In many ways the basic ideas of PAST are
+considered in our research. However the key difference is that PAST's
+security and storage balancing approach is based on a usage of external
+smartcards which are held by each PAST user and issued by a third
+party broker. To the best of our knowledge PAST remained a research
+project and is not available as an open-source or proprietary software.
+
+
+This study aims to research and develop a self-organized and fault-tolerance
+distributed data storage network. Unlike the Freenet project \cite{freenet},
+which has a strong focus on anonymous and censorship resistant \emph{information
+distribution}, we rather focus on persistence of the network in a
+
+  are focusing on data persistence in a  of each user's
+% data uploaded to the network.
+
+By-definition only the original user
 or a predefined third party should be able to access the user's data
 in our network. We are going to utilize the BitTorrent \cite{bittorrent-ma}
-p2p file sharing protocol for data transfer. 
+p2p file sharing protocol for data transfer.
 
 
 Distributed peer-to-peer data storage networks have a great potential and have
 been widely used since the beginning of 21st century
 \cite{chord-01}.
-
-Freenet is a distributed, Internet-wide peer-to-peer overlay network de-
-signed to allow anonymized and censorship resistant publication and
-distribution of information \cite{dark-freenet}.
