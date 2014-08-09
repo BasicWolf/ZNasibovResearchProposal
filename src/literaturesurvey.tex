@@ -1,12 +1,12 @@
 \section{Literature survey}
 
-The p2p storage networks have been actively researched and developed since
-the beginning of 2000s. Their active development began with the growing
-popularity of file-sharing services such as Napster \cite{napster}
-and Gnutella \cite{gnutella}.
+Peer-to-peer file sharing networks have been actively researched and
+developed since the beginning of 2000s. Their active development began
+with the growing popularity of file-sharing services such as Napster
+\citep{napster} and Gnutella \citep{gnutella}.
 
-The \emph{Freenet} project, developed in 2000 was
-a pioneer of distributed information sharing networks \cite{freenet}.
+The \emph{Freenet} project developed by \citet{freenet}, was
+a pioneer of distributed information sharing networks.
 Freenet was the first distributed network which allowed anonymized
 and censorship resistant publication and distribution of information.
 % Freenet was not designed to be a long-term storage network, as
@@ -14,22 +14,38 @@ and censorship resistant publication and distribution of information.
 % users frequently are eventually overwritten by a new content.
 The network is fully operational nowadays.
 
-Unlike Freenet, the \emph{PAST} distributed storage utility was a
-research project (2001) focusing on scalability, high availability, persistence
-and security \cite{past}. In many ways various ideas of PAST are
-considered in our research. However the key difference is that PAST's
-security and storage balancing approach is based on a usage of external
-smartcards which are held by each PAST user and issued by a third
-party broker.
+Unlike Freenet, the \emph{PAST} distributed storage utility
+developed by \citet{past} was a research project focused
+on scalability, high availability, persistence
+and security. PAST introduced a novel approach to \pp network
+security and storage balancing based on external smart cards.
+The smart cards are meant to be unique, hold by each network
+user and be issued by a third party.
+PAST is available as a part of open-source FreePasty
+\footnote{http://www.freepastry.org/FreePastry/} software package
+and was successfully utilized in different \pp network researches.
+\citet{p2p-intrusion} used PAST as a part of \pp collaborative
+intrusion and malware detection network, while 
+\citet{p2p-social-security} used PAST as a part of distributed
+social networks security evaluation study.
+
+Although PAST can be utilized as a basic distributed storage
+component, we state that it's dependency on a third party
+which can restrict new users to join the network, does not allow
+us to consider it as a genuine distributed network.
+
+
+In many ways various ideas of PAST are
+considered in our research.
 
 The BitТorrent file-sharing protocol designed by Bram Cohen
-in 2001 \cite{wiki:bittorrent} eventually became the most
-popular protocol among the competitors.
+in 2001 eventually became the most popular protocol among
+the competitors.
 Its advantage over plain direct download process over HTTP or FTP
 is that when multiple downloads of the same file happen concurrently,
 the downloaders upload to each other, making it possible for the file
 source to support very large numbers of downloaders with only a modest
-increase in its load \cite{bep3}.
+increase in its load \cite{bittorrent-specs}.
 As of June 2014, BitTorrent was responsible for 3.35\% of global
 network traffic versus 1.32\% of FTP traffic, or 0.29\% of
 Dropbox traffic \cite{paloalto-traffic}.
@@ -44,6 +60,11 @@ capacity and availability by partitioning the key space across a set
 of cooperating peers and replicating stored data \cite{opendht}.
 DHT techniques play a major role in a work of any p2p network
 which does not rely on a centralized indexing party.
+
+In our research we are going to utilize a DHT network similar to
+
+Even though existing DHT implementations successfully manage th
+DHTs remain a popular research topic
 REWRITE THIS: They allow locating data and the peers which have it by querying
 the table via a unique hash key obtained from the data.
 
