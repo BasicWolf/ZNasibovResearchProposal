@@ -36,7 +36,7 @@ does not allow us to consider it as a genuine distributed network.
 However there are important ideas of PAST and Freenet that could be
 effectively adopted:
 \begin{itemize}
-\item \bfseries{Layered design} - PAST's routing table as well
+\item \textbf{Layered design} - PAST's routing table as well
 as resources (files) location functionality is based on Pastry
 \citep{pastry} \emph{Dynamic Hash Table} (DHT) scheme. As stated by
 \citet{past}, it is possible to layer PAST over other DHT schemes,
@@ -46,14 +46,14 @@ location part of a \pp network and carrying out a research on it
 separately. We would discuss DHTs more thoroughly in the following
 paragraphs.
 
-\item \bfseries{Caching} - In addition to replicating the files among
+\item \textbf{Caching} - In addition to replicating the files among
 the network nodes, PAST utilizes the available free space for caching
 the frequently requested data \citep{past-caching}. A similar approach
 is used in Freenet \citep{freenet}. This allows decreasing the time
 required to download a resource as well as the time required for
 locating it.
 
-\item \bfseries{Data splitting} - In Freenet, a file is split and
+\item \textbf{Data splitting} - In Freenet, a file is split and
 uploaded to different nodes via chunks. \citet{dark-freenet} explain
 this as a security measure against traffic analysis. As a positive
 side effect, a full file can be retrieved from multiple nodes
@@ -76,7 +76,7 @@ source to support very large numbers of downloaders with only a modest
 increase in its load \citep{bittorrent-specs}.
 As of June 2014, BitTorrent was responsible for 3.35\% of global
 network traffic versus 1.32\% of FTP traffic, or 0.29\% of
-Dropbox traffic \citep{paloalto-traffic}.
+Dropbox traffic \citep{paloalto:traffic}.
 
 The original BitTorrent protocol relied on third-party \emph{tracker}
 servers, in order to find other downloaders, called \emph{peers} and
@@ -89,6 +89,23 @@ of cooperating peers and replicating stored data \cite{opendht}.
 We consider to utilize the BitTorrent protocol for file transfers
 and BitTorrent's \emph{Mainline DHT} \citep{bittorrent-dht} as the
 initial DHT implementation in our network.
+
+The further research of our network's DHT layer is required due to
+different security questions which remain open.
+\citet{dht-security-survey} thoroughly study different DHT attacks
+and defense mechanisms against them. For example, any
+DHT network is exposed to a \emph{Sybil} attack \citep{sybil}.
+A Sybil attack is based on fact that any number of users can
+connect to the DHT network, thus given a large number of
+malicious nodes, the routing protocols can be compromised.
+\citet{dht-security-survey} believe that only joining the network
+via certificates issued by a trusted authority provides sufficient
+defense against Sybil attacks. However \citet{dht-security-survey}
+review distributed defense mechanisms, which provide a
+certain protection against Sybil attack.
+On of our major goals is to build a DHT network able to defend itself
+against the known attacks. It is paramount, as the data location
+mechanism depends on it.
 
 
 USE:
