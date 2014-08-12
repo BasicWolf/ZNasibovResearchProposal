@@ -1,15 +1,22 @@
 \section{The problem statement}
 
 As discussed in introduction, storing the data in cloud services
-can be very convenient for the end user, but it cannot be considered
-secure. If at any point the service has an access to non-encrypted
-user's data there is a chance that a third-party, or the service itself
+can be very convenient for the end user, yet it cannot be considered
+secure. If at any point the service has an access to a user's non-encrypted
+data there is a chance that a third-party, or the service itself
 may intercept it for malicious actions.
 
 One possible solution would be encrypting the data prior to sending it
-to a cloud service. Still, the points is that the cloud owns the data.
-In this study we are aiming to research, prototype and build a p2p storage
-network, which is capable of substituting a cloud data storage services.
+to a cloud service. However this might affect usability a lot. For
+example one can utilize OpenPGP email-security software \citep{rfc3156} to
+encrypt an email on the sender side, making in decipherable for
+the end recipients only. However each recipient must possess a secret
+key for decryption. \textbf{TODO}.
+
+In our research we are aiming to study, prototype and build a decentralized
+\pp storage network, which is capable of substituting a cloud data storage
+services.
+\texfbf{TODO}:
 focusing on the following properties:
 
 \begin{itemize}
@@ -75,4 +82,4 @@ new challenges to solve:
 
 Summarizing the problem statement, our research will focus on network
 self-organization, utilizing the known p2p communication and transfer protocols
-as much as possible. 
+as much as possible.

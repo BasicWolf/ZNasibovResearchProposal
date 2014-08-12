@@ -33,43 +33,23 @@ Although PAST can be utilized as a basic distributed storage
 component, we state that its dependency on a third party smart
 cards issuer which can restrict new users to join the network,
 does not allow us to consider it as a genuine distributed network.
-However there are important ideas of PAST and Freenet that could be
-effectively adopted:
-\begin{itemize}
-\item \textbf{Layered design} - PAST's routing table as well
-as resources (files) location functionality is based on Pastry
-\citep{pastry} \emph{Dynamic Hash Table} (DHT) scheme. As stated by
-\citet{past}, it is possible to layer PAST over other DHT schemes,
-such as Chord \citep{chord-01} or Tapestry citep{tapestry}.
-This feature allows isolating the important distributed resource
-location part of a \pp network and carrying out a research on it
-separately. We would discuss DHTs more thoroughly in the following
-paragraphs.
-
-\item \textbf{Caching} - In addition to replicating the files among
-the network nodes, PAST utilizes the available free space for caching
-the frequently requested data \citep{past-caching}. A similar approach
-is used in Freenet \citep{freenet}. This allows decreasing the time
-required to download a resource as well as the time required for
-locating it.
-
-\item \textbf{Data splitting} - In Freenet, a file is split and
-uploaded to different nodes via chunks. \citet{dark-freenet} explain
-this as a security measure against traffic analysis. As a positive
-side effect, a full file can be retrieved from multiple nodes
-at the same time. This results in a significant download speed
-increase compared to downloading via a single connection.
-\end{itemize}
+However there are important ideas of PAST and Freenet, such as
+\emph{Data splitting}, \emph{Layered design} and \emph{Caching}
+which we will discuss more thoroughly in the following paragraphs.
 
 We have briefly described the existing distributed storage projects
 and some of their properties which we should consider in our research
 as well as the properties which do not satisfy us. We will continue
 with a description of the file transfer protocol of our choice.
 
-The BitТorrent file-sharing protocol designed by Bram Cohen in 2001
-citep{bittorrent-specs} eventually became the most popular protocol
-among the competitors.
-Its advantage over plain direct download process over HTTP or FTP
+In Freenet, a file is split and uploaded to different nodes via chunks.
+\citet{dark-freenet} explain this as a security measure against traffic
+analysis. As a positive side effect, a full file can be retrieved from
+multiple nodes at the same time. This results in a significant download
+speed increase compared to downloading via a single connection.
+The \emph{BitТorrent} file-sharing protocol designed by Bram Cohen in 2001
+citep{bittorrent-specs} utilizes data splitting as its basic feature.
+BitTorretn's advantage over plain direct download process like HTTP or FTP
 is that when multiple downloads of the same file happen concurrently,
 the downloaders upload to each other, making it possible for the file
 source to support very large numbers of downloaders with only a modest
@@ -90,51 +70,82 @@ We consider to utilize the BitTorrent protocol for file transfers
 and BitTorrent's \emph{Mainline DHT} \citep{bittorrent-dht} as the
 initial DHT implementation in our network.
 
+PAST's routing table as well as resources (files) location functionality
+is based on Pastry \citep{pastry} DHT scheme. As stated by
+\citet{past}, it is possible to layer PAST over other DHT schemes,
+such as Chord \citep{chord-01} or Tapestry \citep{tapestry}.
+This feature allows isolating the DHT layer of the network and
+carrying out a research on it separately. We should adopt this
+approach in order to experiment with various DHT techniques without
+modifying the storage logic of the network.
+
 The further research of our network's DHT layer is required due to
 different security questions which remain open.
-\citet{dht-security-survey} thoroughly study different DHT attacks
-and defense mechanisms against them. For example, any
-DHT network is exposed to a \emph{Sybil} attack \citep{sybil}.
-A Sybil attack is based on fact that any number of users can
-connect to the DHT network, thus given a large number of
-malicious nodes, the routing protocols can be compromised.
+\citet{dht-security-survey} thoroughly study different TODO: WHICH?
+DHT attacks
+and defense mechanisms against them. For example,
+if a DHT network cannot guarantee that each of it's logical node
+refers to a single physical entry, then it is exposed to a
+generic \emph{Sybil} attack \citep{sybil}. One of the possible
+attacks is that a large number of malicious nodes can corrupt the
+honest nodes' routing tables.
 \citet{dht-security-survey} believe that only joining the network
 via certificates issued by a trusted authority provides sufficient
 defense against Sybil attacks. However \citet{dht-security-survey}
-review distributed defense mechanisms, which provide a
-certain protection against Sybil attack.
+review distributed defense mechanisms, which provide a certain
+protection against Sybil attack.
 On of our major goals is to build a DHT network able to defend itself
 against the known attacks. It is paramount, as the data location
 mechanism depends on it.
 
+The last major research question relates to maximizing the data
+availability once it was stored into the network.
+\citet{past} outline the basic requirements for availability:
 
-USE:
-OpenDHT: A Public DHT Service and Its Uses.pdf
-Replication Strategies for Highly Available Peer-to-Peer Storage.pdf
-Managing a Peer-to-Peer Data Storage System in a Selfish Society.pdf
+\begin{itemize}
+\item A file remains available as long as one of the nodes that
+      store the file is alive and reachable via the Internet.
+\item The set of nodes that store the file is diverse in geographic
+      location, administration, ownership, network connectivity, rule
+      of law, etc.;
+\item The number of files assigned to each node is balanced.
+\end{itemize}
 
+Although PAST relies on smart cards for storage quota control, it
+implements an effective replication mechanism in case of local
+storage shortage, which can be adopted in our network. In addition
+to replicating the files among the network nodes, PAST utilizes the
+available free space for caching the frequently requested data
+\citep{past-caching}. A similar approach is used in Freenet
+\citep{freenet}. This allows decreasing the time required to download
+a resource as well as the time required for locating it.
+\citet{past-caching} describe PAST storage management in-detail.
+\citet{p2p-replication-strategy} state that splitting files into
+blocks and utilizing \emph{erasure codes} (EC) results in the
+most efficient replication strategy, compared to plain file blocks
+or a whole file replication.
+% They also state that a system using
+% EC blocks can simply track the location of each peer holding
+% \emph{any} block belonging to the object, so that an object can
+% be reconstructed by requesting random blocks.
 
-Another field of p2p applications which have been successfully developed
-and introduced in business is the distributed backup. The
+\citet{selfish-p2p} study the behaviour of \pp data storage system
+users which behave selfishly. \citet{selfish-p2p} use the non-cooperative
+game theory framework to answer the question of
+``Whether it is socially better to
+impose a scheme of limiting the users resources in the system
+to their contribution level or to let a profit maximizing
+monopoly set prices?''. This research shows that the users' behaviour
+can be studied analytically. However the authors say that a complex
+model would rather require a simulation.
 
-Like many other p2p applications which do not rely on a central party
-for coordination, both Freenet and PAST use Distributed Hash Tables (DHT)
-in order to locate network resources by their identifiers.
+% This study aims to research and develop a self-organized and fault-tolerance
+% distributed data storage network. Unlike the Freenet project \cite{freenet},
+% which has a strong focus on anonymous and censorship resistant \emph{information
+% distribution}, we rather focus on persistence of the network in a
 
-This study aims to research and develop a self-organized and fault-tolerance
-distributed data storage network. Unlike the Freenet project \cite{freenet},
-which has a strong focus on anonymous and censorship resistant \emph{information
-distribution}, we rather focus on persistence of the network in a
+% By-definition only the original user
+% or a predefined third party should be able to access the user's data
+% in our network. We are going to utilize the BitTorrent \cite{bittorrent-ma}
+% p2p file sharing protocol for data transfer.
 
-  are focusing on data persistence in a  of each user's
-% data uploaded to the network.
-
-By-definition only the original user
-or a predefined third party should be able to access the user's data
-in our network. We are going to utilize the BitTorrent \cite{bittorrent-ma}
-p2p file sharing protocol for data transfer.
-
-
-Distributed peer-to-peer data storage networks have a great potential and have
-been widely used since the beginning of 21st century
-\cite{chord-01}.
