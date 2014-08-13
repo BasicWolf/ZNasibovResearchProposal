@@ -6,80 +6,104 @@ secure. If at any point the service has an access to a user's non-encrypted
 data there is a chance that a third-party, or the service itself
 may intercept it for malicious actions.
 
-One possible solution would be encrypting the data prior to sending it
-to a cloud service. However this might affect usability a lot. For
+A user may encrypt the data prior to uploading it to a cloud service,
+however this might affect usability a lot. For
 example one can utilize OpenPGP email-security software \citep{rfc3156} to
 encrypt an email on the sender side, making in decipherable for
 the end recipients only. However each recipient must possess a secret
-key for decryption. \textbf{TODO}.
+key for decryption, which is usually not an option when contacting
+someone for the first time.
 
-In our research we are aiming to study, prototype and build a decentralized
-\pp storage network, which is capable of substituting a cloud data storage
-services.
-\texfbf{TODO}:
-focusing on the following properties:
+In our research we are aiming to study, prototype and build a
+cooperative decentralized \pp storage network, which is capable
+of substituting a cloud data storage services. In our network,
+every user dedicates some of his storage space and bandwidth
+to the needs of the other users. The network relies on
+well-known public cryptography mechanism to ensure that
+only the user and selected parties can access the data.
+
+The following use cases are considered a launchpad for the
+network design and research questions:
 
 \begin{itemize}
-\item \textbf{Security} - all the user's data which is stored and transferred
-  within the network is accessible only by its owner or a party with whom the
-  owner is sharing an abstract secret only.
-\item \textbf{Scalability} - a network can be established in various
-  scales: from two-devices personal network up to an Internet-wide storage
-  system.
-\item \textbf{Self-organization} - a network is self-organized in such
-  fashion that the users data is at least readable in case of it's spontaneous
-  degradation, like availability of peers, the contributed storage size
-  decrease, network lags and other failures.
-\item \textbf{Decentralization} - a network is completely decentralized,
-  with no key servers, so that there is no ``off'' button which shuts the
-  whole network down.
+\item \textbf{Backup} - a user uploads files to the network and
+      is able to retrieve them later in a significant (for example
+      a year) period of time.
+\item \textbf{Synchronization} - a user takes photos via a smartphone,
+      which are uploaded to the network and then automatically
+      downloaded to the user's PC.
+\item \textbf{Sharing} - a user uploads a file to the network and
+      shares the file identifier with a friend or other third party.
+      The friend is then able to get the file from the network.
+\end{itemize}
+
+We consider the following features as mandatory in order to make
+the network fully operational:
+
+\begin{itemize}
+\item \textbf{Decentralization} - the network is completely decentralized,
+      with no key servers, so that there is no ``off'' button which shuts
+      the whole network down.
+\item \textbf{Data Security} - all the user's data which is stored and transferred
+      within the network is accessible only by its owner or a party with whom the
+      owner is sharing a certain secret.
+\item \textbf{Routing security} - the routing and data location protocols
+      provides security against known attacks.
+\item \textbf{Availability} - a user's data remains readable,
+      as long as sufficient amount of peers who hold that data remain online.
+\item \textbf{Network scalability} - the network can be established in various
+      scales: from two-devices personal network up to an Internet-wide storage
+      system.
+\item \textbf{Storage balancing} - the network is able to balance the users'
+      storage quota, so that the more storage space a user contributes,
+      the more data he is able to store.
 \item \textbf{Usability} - the software should be easy and intuitive to
-  use. Ideally the network client should be ready to use after a  simple
-  setup with a minimum set of questions to the user.
+      use. Ideally the network client should be ready to use after a
+      simple setup with a minimum set of questions to the user.
 \item \textbf{Commercialization} - The usage of the network is not limited
-  by volunteer storage space and bandwidth sharing. A commercial company
-  may utilize the user's resources in a private network for backup or any
-  other data storing tasks and pay to the users of this network for provided
-  storage.
+      by volunteer storage space and bandwidth sharing. A commercial company
+      may utilize the user's resources in a private network for backup or any
+      other data storing tasks and pay to the users of this network for
+      provided storage.
 \end{itemize}
 
-Some of the properties described above have a well-known working solutions
-available in various p2p protocols. But the described storage network brings
-new challenges to solve:
 
-\begin{itemize}
-\item \textbf{Usage reporting} - the peers should be able to provide
-  a proof of storage and proof of data transfer. These values can be used
-  to balance the network resources between the peers, so that the amount
-  of the network resources available to each user should correlate with
-  his or her storage and bandwidth contribution. The questions to answer:
-  How data storage and transfer proof should be organized? How to protect
-  it from forgery?
-  % For example,
-  % user \textbf{A} provides 10 gigabyte of storage space for the network which
-  % is available 24 hours a day. User \textbf{B} provides 30 gigabytes of space
-  % for the network which is available 8 hours a day. Although the difference in
-  % contributed space is obvious, the uptime can be considered more valuable.
-  % Overall, the more resources a user provides to a network, the more resources
-  % are available for him.
+The ultimate problem of our research - is building the distributed
+storage network described above. We have outlined the ready
+components of the network that we may utilize, as well as the
+components which need a further research in the following literature
+survey.
 
-\item \textbf{Distributed data storage} - how should the data be replicated
-  among the peers? How long should it be kept by the peers if the network
-  is running out of space? Which properties of individual peer (i.e. uptime,
-  free space, bandwidth, device type etc.) should be  taken into consideration
-  when tranferring the data to it?
 
-\item \textbf{Network topology} - what is the optimal way of organizing the
-  network? How should the peers interconnect?
+% \begin{itemize}
+% \item \textbf{Usage reporting} - the peers should be able to provide
+%   a proof of storage and proof of data transfer. These values can be used
+%   to balance the network resources between the peers, so that the amount
+%   of the network resources available to each user should correlate with
+%   his or her storage and bandwidth contribution. The questions to answer:
+%   How data storage and transfer proof should be organized? How to protect
+%   it from forgery?
+%   % For example,
+%   % user \textbf{A} provides 10 gigabyte of storage space for the network which
+%   % is available 24 hours a day. User \textbf{B} provides 30 gigabytes of space
+%   % for the network which is available 8 hours a day. Although the difference in
+%   % contributed space is obvious, the uptime can be considered more valuable.
+%   % Overall, the more resources a user provides to a network, the more resources
+%   % are available for him.
 
-\item \textbf{Network security} - how should the network defend against known
-  attacks on p2p networks?
+% \item \textbf{Distributed data storage} - how should the data be replicated
+%   among the peers? How long should it be kept by the peers if the network
+%   is running out of space? Which properties of individual peer (i.e. uptime,
+%   free space, bandwidth, device type etc.) should be  taken into consideration
+%   when tranferring the data to it?
 
-\item \textbf{Software and platforms} - is it possible to distribute the software
-  on various platforms (i.e. PC, mobile, browsers etc.), providing the same
-  functionality?
-\end{itemize}
+% \item \textbf{Network topology} - what is the optimal way of organizing the
+%   network? How should the peers interconnect?
 
-Summarizing the problem statement, our research will focus on network
-self-organization, utilizing the known p2p communication and transfer protocols
-as much as possible.
+% \item \textbf{Network security} - how should the network defend against known
+%   attacks on p2p networks?
+
+% \item \textbf{Software and platforms} - is it possible to distribute the software
+%   on various platforms (i.e. PC, mobile, browsers etc.), providing the same
+%   functionality?
+% \end{itemize}

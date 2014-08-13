@@ -9,9 +9,9 @@ The \emph{Freenet} project developed by \citet{freenet}, was
 a pioneer of distributed information sharing networks.
 Freenet was the first distributed network which allowed anonymized
 and censorship resistant publication and distribution of information.
-Freenet was not designed to be a long-term storage network, as
-the ``unpopular'' documents, which are not retrieved by the
-users frequently are eventually overwritten by a new content.
+% Freenet was not designed to be a long-term storage network, as
+% the ``unpopular'' documents, which are not retrieved by the
+% users frequently are eventually overwritten by a new content.
 Freenet is still being developed and is fully operational nowadays.
 
 Unlike Freenet, the \emph{PAST} distributed storage utility
@@ -35,12 +35,13 @@ cards issuer which can restrict new users to join the network,
 does not allow us to consider it as a genuine distributed network.
 However there are important ideas of PAST and Freenet, such as
 \emph{Data splitting}, \emph{Layered design} and \emph{Caching}
-which we will discuss more thoroughly in the following paragraphs.
+which can be adopted. We will discuss them more thoroughly
+in the following paragraphs.
 
-We have briefly described the existing distributed storage projects
-and some of their properties which we should consider in our research
-as well as the properties which do not satisfy us. We will continue
-with a description of the file transfer protocol of our choice.
+% We have briefly described the existing distributed storage projects
+% and some of their properties which we should consider in our research
+% as well as the properties which do not satisfy us. We will continue
+% with a description of the file transfer protocol of our choice.
 
 In Freenet, a file is split and uploaded to different nodes via chunks.
 \citet{dark-freenet} explain this as a security measure against traffic
@@ -48,7 +49,7 @@ analysis. As a positive side effect, a full file can be retrieved from
 multiple nodes at the same time. This results in a significant download
 speed increase compared to downloading via a single connection.
 The \emph{BitТorrent} file-sharing protocol designed by Bram Cohen in 2001
-citep{bittorrent-specs} utilizes data splitting as its basic feature.
+\citep{bittorrent-specs} utilizes data splitting as its basic feature.
 BitTorretn's advantage over plain direct download process like HTTP or FTP
 is that when multiple downloads of the same file happen concurrently,
 the downloaders upload to each other, making it possible for the file
@@ -73,7 +74,7 @@ initial DHT implementation in our network.
 PAST's routing table as well as resources (files) location functionality
 is based on Pastry \citep{pastry} DHT scheme. As stated by
 \citet{past}, it is possible to layer PAST over other DHT schemes,
-such as Chord \citep{chord-01} or Tapestry \citep{tapestry}.
+such as \emph{Chord} \citep{chord-01} or \emph{Tapestry} \citep{tapestry}.
 This feature allows isolating the DHT layer of the network and
 carrying out a research on it separately. We should adopt this
 approach in order to experiment with various DHT techniques without
@@ -81,9 +82,9 @@ modifying the storage logic of the network.
 
 The further research of our network's DHT layer is required due to
 different security questions which remain open.
-\citet{dht-security-survey} thoroughly study different TODO: WHICH?
-DHT attacks
-and defense mechanisms against them. For example,
+A DHT security techniques survey by \citet{dht-security-survey}
+describes various DHT attacks and defense mechanisms against them.
+For example,
 if a DHT network cannot guarantee that each of it's logical node
 refers to a single physical entry, then it is exposed to a
 generic \emph{Sybil} attack \citep{sybil}. One of the possible
@@ -98,7 +99,7 @@ On of our major goals is to build a DHT network able to defend itself
 against the known attacks. It is paramount, as the data location
 mechanism depends on it.
 
-The last major research question relates to maximizing the data
+The last major research question is related to maximizing the data
 availability once it was stored into the network.
 \citet{past} outline the basic requirements for availability:
 
@@ -148,4 +149,3 @@ model would rather require a simulation.
 % or a predefined third party should be able to access the user's data
 % in our network. We are going to utilize the BitTorrent \cite{bittorrent-ma}
 % p2p file sharing protocol for data transfer.
-
