@@ -1,35 +1,35 @@
 \section{The problem statement}
 
-As discussed in introduction, storing the data in cloud services
+As discussed in the introduction, storing the data in cloud services
 can be very convenient for the end user, yet it cannot be considered
-secure. If at any point the service has an access to a user's non-encrypted
+secure. If at any point the service has access to a user's non-encrypted
 data there is a chance that a third-party, or the service itself
-may intercept it for malicious actions.
+could intercept it for malicious actions.
 
-A user may encrypt the data prior to uploading it to a cloud service,
-however this might affect usability a lot. For
-example one can utilize OpenPGP email-security software \citep{rfc3156} to
+A user may encrypt the prior to uploading it to a cloud service,
+which may affect usability.
+For example one can utilize OpenPGP email-security software \citep{rfc3156} to
 encrypt an email on the sender side, making in decipherable for
 the end recipients only. However each recipient must possess a secret
 key for decryption, which is usually not an option when contacting
 someone for the first time.
 
-In our research we are aiming to study, prototype and build a
+In this research we aim to study, prototype and build a
 cooperative decentralized \pp storage network, which is capable
-of substituting a cloud data storage services. In our network,
-every user dedicates some of his storage space and bandwidth
+of substituting cloud data storage services. In the proposed \pp network,
+every user dedicates some of their storage space and bandwidth
 to the needs of the other users. The network relies on
-well-known public cryptography mechanism to ensure that
-only the user and selected parties can access the data.
+a well-known public cryptography mechanisms to ensure that
+only the user and selected parties are able to access the data.
 
-The following use cases are considered a launchpad for the
+The following use cases are considered as a basis for the
 network design and research questions:
 
 \begin{itemize}
 \item \textbf{Backup} - a user uploads files to the network and
-      is able to retrieve them later in a significant (for example
-      a year) period of time.
-\item \textbf{Synchronization} - a user takes photos via a smartphone,
+      is able to retrieve them at a later date (for example,
+      in a year's time).
+\item \textbf{Synchronization} - a user takes some photos via a smartphone,
       which are uploaded to the network and then automatically
       downloaded to the user's PC.
 \item \textbf{Sharing} - a user uploads a file to the network and
@@ -42,28 +42,28 @@ the network fully operational:
 
 \begin{itemize}
 \item \textbf{Decentralization} - the network is completely decentralized,
-      with no key servers, so that there is no ``off'' button which shuts
+      with no key servers, so that there is no ``off button'' which shuts
       the whole network down.
 \item \textbf{Data Security} - all the user's data which is stored and transferred
-      within the network is accessible only by its owner or a party with whom the
-      owner is sharing a certain secret.
+      within the network is accessible only by its owner or a party to whom the
+      owner is explicitly providing access.
 \item \textbf{Routing security} - the routing and data location protocols
-      provides security against known attacks.
+      provides security against known attack vectors.
 \item \textbf{Availability} - a user's data remains readable,
-      as long as sufficient amount of peers who hold that data remain online.
+      as long as a sufficient amount of peers who hold that data remain online.
 \item \textbf{Network scalability} - the network can be established in various
-      scales: from two-devices personal network up to an Internet-wide storage
-      system.
+      scales: from a two-devices personal network up to an Internet-based,
+      large scale storage system.
 \item \textbf{Storage balancing} - the network is able to balance the users'
       storage quota, so that the more storage space a user contributes,
-      the more data he is able to store.
+      the more data they are able to store.
 \item \textbf{Usability} - the software should be easy and intuitive to
       use. Ideally the network client should be ready to use after a
-      simple setup with a minimum set of questions to the user.
+      simple setup with a minimum set of questions for the user.
 \item \textbf{Commercialization} - The usage of the network is not limited
       by volunteer storage space and bandwidth sharing. A commercial company
       may utilize the user's resources in a private network for backup or any
-      other data storing tasks and pay to the users of this network for
+      other data storing tasks and pay the users of the network for any
       provided storage.
 \end{itemize}
 

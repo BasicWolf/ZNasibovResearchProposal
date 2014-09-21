@@ -1,12 +1,12 @@
 \section{Introduction}
 
-A Personal Computer (PC) has yielded a great share of marked during the
-last decade. Mobile devices and cloud computing played a major role in
+The Personal Computer (PC) has lost a great share of the market during the
+last decade. Mobile devices and cloud computing have played a major role in
 this course of events. Nevertheless, a mobile device like a smartphone or a
 tablet is still considered a personal computing device in terms of data
-storage and processing. When we speak of cloud computing, we refer to
+storage and processing power. When we speak of cloud computing, we refer to
 the services that store and process users' data remotely.
-Surprisingly a lot of various services fall under this description,
+Surprisingly a lot of these services fall under this description,
 for example: email providers such as
 \emph{Gmail} (\url{https://gmail.com}),
 image and file hosting services such as
@@ -21,61 +21,67 @@ social networking services such as
 
 Storing and processing users' data remotely has been a concern for
 a lot of people around the globe. For example, the founder of GNU
-Richard Stallman sees cloud comping as a trap \citep{stallman-cloud-08}.
+Richard Stallman sees cloud comping as a trap aimed at forcing more
+people to buy into locked, proprietary systems that would cost them
+more and more over time \citep{stallman-cloud-08}.
 Indeed a data stored in a cloud service is not controlled by the user.
 A user has no idea where and how the data is stored, how well it is
 protected and how it will be used by the service owner.
-Google \emph{terms of service} \citep{google-tos} and
-\emph{privacy policy} \cite{google-privacy} state that a content of a user
-such as emails or a user's location like GPS coordinates is collected
-and is automatically analyzed to
+Google's \emph{terms of service} \citep{google-tos} and
+\emph{privacy policy} \cite{google-privacy} state that a user's content
+such as emails or location data via GPS coordinates is collected
+and automatically analysed to
 \emph{``provide personally relevant product
 features, such as customized search results, tailored advertising,
 and spam and malware detection''}.
-These kind of terms leave a user
+These enforced terms leave a user
 in awkward situation: either use the services and let all the information
 to be collected or don't use the services at all.
 The recent revelations
-of Edward Snowden, a former US National Security Agency (NSA) employee
-showed that a right for a privacy of the users' data can be
-severely ignored by a legitimate government \citep{snowden-timeline}.
-One of the documents obtained by the \emph{Guardian} magazine,
-revealed an existence of a governmental surveillance program
-\emph{Prism}\cite{snowden-prism}. Prism allows officials to collect
-material including search history, the content of emails, file
+by Edward Snowden, a former US National Security Agency (NSA) employee
+showed that the right to privacy of data can be severely ignored by a
+legitimate government entity \citep{snowden-timeline}.
+One of the documents obtained by the \emph{Guardian} newspaper,
+revealed the existence of a government surveillance program
+\emph{Prism}\cite{snowden-prism}.
+Prism enabled the mass collection of seemingly private material
+including search history, the content of emails, file
 transfers and live chats, the document says. One of the ugly examples
-of ignoring users' data privacy is a pre-encryption stage access
-to email on Outlook.com, including Hotmail and an access to Microsoft's
-cloud storage service \emph{SkyDrive}, all provided by Microsoft to NSA
+of ignoring users' data privacy was the access of the contents of email,
+prior to it being encrypted, on Microsoft's Outlook.com and Hotmail services.
+Additionally access was granted to Microsoft's
+cloud storage service \emph{SkyDrive}, provided by Microsoft to NSA
 via Prism \citep{snowden-ms-nsa}.
 
-Why people still use cloud services? Usability and availability are
-among the main factors that attract the users. For example a Dropbox
-user takes a photo via a smartphone camera, which is then automatically
-uploaded to a cloud and synchronized with the user's devices.
+With these facts in mind, why people still want to use cloud services?
+Usability and availability are among the main factors that attract the users.
+For example a Dropbox
+user takes a photo via a smartphone, which is then automatically
+uploaded to the cloud service and synchronised with the user's device(s).
 The uploaded photo is also accessible via a standard web browser.
 
-Another example is Gmail. Gmail provides an access to email via
+Another example is Google's free email service, Gmail.
+Gmail provides access to email via
 standard Internet Message Access (IMAP), and Simple Mail
-Transfer (SMTP) protocols, making the mailbox accessible
-via email client programs. But these features are available from
+Transfer (SMTP) protocols, thus making the mailbox accessible
+via email client programs. However these features are available from
 a wide range of competitors. What makes Gmail immensely popular
 is its feature-rich and convenient web client and integration with
 other Google services \citep{gmail-popularity}.
 
-Is there an alternative to proprietary cloud-based
-software-as-service?
-Of course there is! A personal server with e-mail,
+However, there are alternatives to proprietary cloud-based
+Software-as-Service (SaaS).
+For example, a personal server with e-mail,
 File Transfer Protocol (FTP) and
 Session Initiation Protocol (SIP)
 services could theoretically substitute all the cloud services
 mentioned above. In practice such a solution would be hard to maintain:
-a personal server need to be constantly online, a user has to keep
+a personal server needs to be constantly online, and the user has to keep
 the software up-to date, deal with security issues, hardware failures
 etc.
 
-To overcome such maintainability difficulties an amount of
-processor work, network traffic routing and storage service load
+To overcome such maintenance challenges an amount of
+processor workload, network traffic routing and storage service load
 can be distributed among the interconnected users.
 The users of such a network are called peers and the network
 itself is called a peer-to-peer (p2p) network.
@@ -94,21 +100,21 @@ mechanism for a chain of bitcoins transactions. Any user can
 trace and verify the ownership and transfer of each virtual
 coin from the moment it appeared in the network via
 so-called bitcoin \emph{mining process}.
-And finally \emph{BitTorrent} (\url{http://bittorrent.org})-
+Finally, \emph{BitTorrent} (\url{http://bittorrent.org})-
 a popular file sharing protocol, which is
-unfortunately widely associated with software piracy rather than
+rightly or wrongly associated with software piracy rather than
 with information liberty. BitTorrent allows a piece of data to be
-available, as long as any of the users, who has downloaded the original
+available, as long as any of the users, who have downloaded the original
 chunk of data (from the original source, or any other user) remains
 online. This leads to yet another brilliant property of BitTorrent:
-given many users online, who share the same data, it can be downloaded
-in pieces from different users (i.e. peers), increasing the download
-speed up to the network channel bandwidth limits.
+given that there are always many users online, who share the same data,
+the download can be distributed across different users (i.e. peers),
+increasing the download speed up to the network channel bandwidth limits.
 
-Peer-to-peer networks play a major role in Internet users' lifes.
+Peer-to-peer networks play a major role in Internet users' lives.
 Yet, not all users, not even \pp software users are aware of them.
-The reason of appealing for the end users and \pp technologies
-is in a favourable development of modern computers and network channels.
+The reason of the appeal to the end users and \pp technologies
+is the favourable development of modern computers and network channels.
 With the growth of storage capabilities, processing power and network
 bandwidth a typical user has gigaflops of processing power, gigabytes
 of storage and gigabits of network bandwidth to spare. Combining all
