@@ -45,12 +45,12 @@ the following paragraphs.
 
 In Freenet, a file is split and uploaded to different nodes via chunks.
 \citet{dark-freenet} explain this as a security measure against traffic
-analysis. As a positive side effect, a full file can be retrieved from
+analysis. One positive impact of this process is that a full file can be retrieved from
 multiple nodes at the same time. This results in a significant download
-speed increase compared to downloading via a single connection.
+speed increase when compared to downloading via a single connection.
 The \emph{BitТorrent} file-sharing protocol designed by Bram Cohen in 2001
 \citep{bittorrent-specs} utilizes data splitting as its basic feature.
-BitTorretn's advantage over plain direct download process like HTTP or FTP
+BitTorrent's advantage over plain direct download process like HTTP or FTP
 is that when multiple downloads of the same file happen concurrently,
 the downloaders upload to each other, making it possible for the file
 source to support very large numbers of downloaders with only a modest
@@ -60,9 +60,9 @@ network traffic versus 1.32\% of FTP traffic, or 0.29\% of
 Dropbox traffic \citep{paloalto:traffic}.
 
 The original BitTorrent protocol relied on third-party \emph{tracker}
-servers, in order to find other downloaders, called \emph{peers} and
+servers, in order to find other \emph{peers} and
 join the distributed downloading process.
-The protocol was lately extended with ability to locate a file by
+The protocol was lately extended with an ability to locate a file by
 its \emph{infohash} identifier via \emph{Distributed Hash Tables} (DHT).
 A DHT is an analogue of a traditional hash table which offers increased
 capacity and availability by partitioning the key space across a set
@@ -76,27 +76,27 @@ is based on Pastry \citep{pastry} DHT scheme. As stated by
 \citet{past}, it is possible to layer PAST over other DHT schemes,
 such as \emph{Chord} \citep{chord-01} or \emph{Tapestry} \citep{tapestry}.
 This feature allows isolating the DHT layer of the network and
-carrying out a research on it separately. We should adopt this
+carrying out research on it separately. We will adopt this
 approach in order to experiment with various DHT techniques without
 modifying the storage logic of the network.
 
 The further research of our network's DHT layer is required due to
 different security questions which remain open.
-A DHT security techniques survey by \citet{dht-security-survey}
+The DHT security techniques survey by \citet{dht-security-survey}
 describes various DHT attacks and defense mechanisms against them.
 For example,
-if a DHT network cannot guarantee that each of it's logical node
+if a DHT network cannot guarantee that each of its logical node
 refers to a single physical entry, then it is exposed to a
-generic \emph{Sybil} attack \citep{sybil}. One of the possible
-attacks is that a large number of malicious nodes can corrupt the
-honest nodes' routing tables.
+generic \emph{Sybil} attack \citep{sybil}. One possible
+attack is that a large number of malicious nodes can corrupt the
+``honest'' nodes' routing tables.
 \citet{dht-security-survey} believe that only joining the network
 via certificates issued by a trusted authority provides sufficient
 defense against Sybil attacks. However \citet{dht-security-survey}
 review distributed defense mechanisms, which provide a certain
 protection against Sybil attack.
-On of our major goals is to build a DHT network able to defend itself
-against the known attacks. It is paramount, as the data location
+One of our major goals is to build a DHT network able to defend itself
+against the known attacks. It is paramount, since the data location
 mechanism depends on it.
 
 The last major research question is related to maximizing the data
@@ -112,13 +112,13 @@ availability once it was stored into the network.
 \item The number of files assigned to each node is balanced.
 \end{itemize}
 
-Although PAST relies on smart cards for storage quota control, it
+While PAST relies on smart cards for storage quota control, it
 implements an effective replication mechanism in case of local
 storage shortage, which can be adopted in our network. In addition
 to replicating the files among the network nodes, PAST utilizes the
 available free space for caching the frequently requested data
 \citep{past-caching}. A similar approach is used in Freenet
-\citep{freenet}. This allows decreasing the time required to download
+\citep{freenet}. This allows for decreasing the time required to download
 a resource as well as the time required for locating it.
 \citet{past-caching} describe PAST storage management in-detail.
 \citet{p2p-replication-strategy} state that splitting files into
@@ -138,7 +138,7 @@ impose a scheme of limiting the users resources in the system
 to their contribution level or to let a profit maximizing
 monopoly set prices?''. This research shows that the users' behaviour
 can be studied analytically. However the authors say that a complex
-model would rather require a simulation.
+model would require a simulation.
 
 % This study aims to research and develop a self-organized and fault-tolerance
 % distributed data storage network. Unlike the Freenet project \cite{freenet},
