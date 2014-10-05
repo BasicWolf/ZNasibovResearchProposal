@@ -6,7 +6,7 @@ secure. If at any point the service has access to a user's non-encrypted
 data there is a chance that a third-party, or the service itself
 could intercept it for malicious actions.
 
-A user may encrypt the prior to uploading it to a cloud service,
+A user may encrypt data prior to uploading it to a cloud service,
 which may affect usability.
 For example one can utilize OpenPGP email-security software \citep{rfc3156} to
 encrypt an email on the sender side, making in decipherable for
@@ -15,7 +15,7 @@ key for decryption, which is usually not an option when contacting
 someone for the first time.
 
 In this research we aim to study, prototype and build a
-cooperative decentralized \pp storage network, which is capable
+cooperative decentralised \pp storage network, which is capable
 of substituting cloud data storage services. In the proposed \pp network,
 every user dedicates some of their storage space and bandwidth
 to the needs of the other users. The network relies on
@@ -41,7 +41,7 @@ We consider the following features as mandatory in order to make
 the network fully operational:
 
 \begin{itemize}
-\item \textbf{Decentralization} - the network is completely decentralized,
+\item \textbf{Decentralisation} - the network is completely decentralized,
       with no key servers, so that there is no ``off button'' which shuts
       the whole network down.
 \item \textbf{Data Security} - all the user's data which is stored and transferred
@@ -66,6 +66,26 @@ the network fully operational:
       other data storing tasks and pay the users of the network for any
       provided storage.
 \end{itemize}
+
+We have to answer different research questions to implement these features
+successfully. Because of the decentralised and open nature of the network,
+each user who joins it for the first time,  will not be able to trust any
+other user.
+
+Our first research question is \emph{``how to organise the users connectivity
+when none of them can be trusted, at least initially''}.
+Our research will start with designing and implementing the computer model
+of the network which will allow us to simulate users' activity as well as
+\pp network attacks. The model will help to define the network's
+self-organisation patterns which can maximise its security with minimal
+computational overhead.
+
+The same computer model will be used to answer our second research 
+question, which is \emph{``how to organise the data replication to maximise
+its availability''}. We will extend the initial computer model to simulate
+the users file sharing activities 
+
+The desired features provide a basis to the following research questions:
 
 
 The ultimate problem of our research - is building the distributed
